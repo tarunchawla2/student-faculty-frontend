@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-xs-12">
+    <hr>
+    <h4>Note*- Please enter subjects which are there in DB i.e PHY,CHE,BIO or any other subject that you add</h4>
+    <hr>
+    <form (ngSubmit)="onSubmit()" [formGroup]="studentForm">
+      <div class="row">
+        <div class="col-sm-5 form-group">
+          <label for="name">Name</label>
+          <!-- <input type="text" id="name" class="form-control" #nameInput> -->
+          <input type="text" placeholder="Enter name" class="form-control" required formControlName="name" name="name">
+        </div>
+        <div class="col-sm-5 form-group">
+          <label for="amount">Subjects</label>
+          <input type="text" placeholder="Example CHE,PHY" class="form-control" required formControlName="subjects"
+            name="subjects">
+        </div>
+        <div class="col-sm-5 form-group">
+          <label for="amount">Image</label>
+          <input type="file" #filePicker (change)="onImagePicked($event)">
+        </div>
+        <div class="image-preview" *ngIf="imagePreview !==''">
+          <img [src]="imagePreview" [alt]="studentForm.value.name">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button class="btn btn-success" [disabled]="!studentForm.valid"
+            type="submit">{{editMode?'Update':'Add'}}</button>
+          <button class="btn btn-danger" type="button" [disabled]="!(editMode && studentForm.valid)" (click)="
+            onDelete()">Delete</button>
+          <button class="btn btn-primary" type="button" [disabled]="!studentForm.valid" (click)="
+            onClear()">Clear</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

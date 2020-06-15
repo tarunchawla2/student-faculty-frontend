@@ -1,0 +1,9 @@
+a.navbar-brand {
+  padding: 13px 15px;
+}
+span {
+  margin-right: 4px;
+}
+li{
+  cursor: pointer;
+}

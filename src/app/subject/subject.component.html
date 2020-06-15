@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-xs-10">
+    <app-subject-edit></app-subject-edit>
+    <hr>
+    <ul class="list-group">
+      <a style=" cursor: pointer;" class="list-group-item" *ngFor="let subject of subjects; let i=index"
+        (click)="onEditSubject(subject)">
+        {{subject.name}}
+      </a>
+    </ul>
+  </div>
+</div>

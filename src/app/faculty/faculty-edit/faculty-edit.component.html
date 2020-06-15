@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form (ngSubmit)="onSubmit()" [formGroup]="facultyForm">
+      <div class="row">
+        <hr>
+        <h4>Note*- Please enter subjects which are there in DB i.e PHY,CHE,BIO or any other subject that you add</h4>
+        <hr>
+        <div class="col-sm-5 form-group">
+          <label for="name">Name</label>
+          <!-- <input type="text" id="name" class="form-control" #nameInput> -->
+          <input type="text" placeholder="Enter name of faculty" class="form-control" required formControlName="name"
+            name="name">
+        </div>
+        <div class="col-sm-5 form-group">
+          <label for="amount">Subjects</label>
+          <input type="text" placeholder="Example CHE,PHY" class="form-control" required formControlName="subjects"
+            name="subjects">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button class="btn btn-success" type="submit">{{editMode?'Update':'Add'}}</button>
+          <button class="btn btn-danger" type="button" [disabled]="!(editMode && facultyForm.valid)" (click)="
+            onDelete()">Delete</button>
+          <button class="btn btn-primary" type="button" [disabled]="!facultyForm.valid" (click)="
+            onClear()">Clear</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

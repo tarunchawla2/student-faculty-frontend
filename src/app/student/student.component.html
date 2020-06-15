@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-xs-10">
+    <app-student-edit></app-student-edit>
+    <hr>
+    <ul class="list-group">
+      <a style=" cursor: pointer;" class="list-group-item" *ngFor="let student of students; let i=index"
+        (click)="onEditStudent(student)">
+        {{student.name}}
+        [<span *ngFor="let subject of student.subjects;let ind=index">
+          {{subject.name}}{{ind===student.subjects.length-1?'':','}}
+        </span>]
+          <img *ngIf="student.imagePath" class="image-preview" [src]="student.imagePath" [alt]="student.name">
+      </a>
+    </ul>
+  </div>
+</div>

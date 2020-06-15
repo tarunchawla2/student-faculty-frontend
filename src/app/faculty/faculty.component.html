@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-xs-10">
+    <app-faculty-edit></app-faculty-edit>
+    <hr>
+    <ul class="list-group">
+      <a style=" cursor: pointer;" class="list-group-item" *ngFor="let faculty of faculties; let i=index"
+        (click)="onEditFaculty(faculty)">
+        {{faculty.name}}
+        [<span *ngFor="let subject of faculty.subjects;let ind=index">
+          {{subject.name}}{{ind===faculty.subjects.length-1?'':','}}
+        </span>]
+      </a>
+    </ul>
+  </div>
+</div>
